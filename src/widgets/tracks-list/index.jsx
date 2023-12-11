@@ -1,5 +1,5 @@
 import { Track } from '../../components/track/index';
-import style from './tracks-list.module.scss';
+import style from './index.module.scss';
 
 function TracksList({ dataTraks }) {
   return (

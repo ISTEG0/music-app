@@ -1,4 +1,4 @@
-import style from './search.module.scss';
+import style from './index.module.scss';
 import { useState, useEffect } from 'react';
 
 function Search({ setEnteredText }) {

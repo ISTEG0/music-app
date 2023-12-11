@@ -1,13 +1,12 @@
 import { ConvertSecondsToMmSs } from '../../utils/seconds-to-mm-ss';
-import style from './track.module.scss';
+import style from './index.module.scss';
 import { AudioContext } from '../../context/audio-context';
 import { useContext } from 'react';
 
 function Track(track) {
   const { id, preview, duration, title, artists } = track;
 
-  const { currentTrack, isPlaying, handleToggleTrack } =
-    useContext(AudioContext);
+  const { currentTrack, isPlaying, handleToggleTrack } = useContext(AudioContext);
 
   const formattedDuration = ConvertSecondsToMmSs(duration);
 
@@ -15,8 +14,7 @@ function Track(track) {
 
   const colorPlays = '#c86efc';
   const colorNotPlays = '#000000';
-  const classPlays =
-    isCurrentTrack && isPlaying ? style.trackPlays : colorNotPlays;
+  const classPlays = isCurrentTrack && isPlaying ? style.trackPlays : colorNotPlays;
 
   let iconPlay = (
     <svg
@@ -32,9 +30,9 @@ function Track(track) {
   let iconPause = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="30"
+      height="29"
       viewBox="0 -960 960 960"
-      width="30"
+      width="29"
     >
       <path
         fill={isCurrentTrack ? colorPlays : colorNotPlays}
@@ -60,9 +58,7 @@ function Track(track) {
           <p className={`${style.trackTitle} ${classPlays}`}>{title}</p>
           <p className={`${style.trackArtist} ${classPlays}`}>{artists}</p>
         </div>
-        <div className={`${style.trackTime} ${classPlays}`}>
-          {formattedDuration}
-        </div>
+        <div className={`${style.trackTime} ${classPlays}`}>{formattedDuration}</div>
       </div>
     </div>
   );
