@@ -3,10 +3,12 @@ import { TracksList } from '../../widgets/tracks-list';
 import { Search } from '../../components/search';
 import { searchTracks } from '../../utils/search-tracks';
 import { useState, useEffect } from 'react';
+import { AudioProvider } from '../../context/audio-context';
 
 function MainPage() {
   const [tracks, setTracks] = useState(tracksListData);
   const [enteredText, setEnteredText] = useState('');
+  const [test, setTest] = useState(6);
 
   useEffect(() => {
     if (!enteredText) {
@@ -22,10 +24,12 @@ function MainPage() {
   }, [enteredText]);
 
   return (
-    <main>
-      <Search setEnteredText={setEnteredText} />
-      <TracksList dataTraks={tracks} />
-    </main>
+    <AudioProvider>
+      <main>
+        <Search setEnteredText={setEnteredText} />
+        <TracksList dataTraks={tracks} />
+      </main>
+    </AudioProvider>
   );
 }
 
