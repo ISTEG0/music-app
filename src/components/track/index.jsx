@@ -15,7 +15,8 @@ function Track(track) {
 
   const colorPlays = '#c86efc';
   const colorNotPlays = '#000000';
-  const classPlays = isCurrentTrack && isPlaying ? style.trackPlays : null;
+  const classPlays =
+    isCurrentTrack && isPlaying ? style.trackPlays : colorNotPlays;
 
   let iconPlay = (
     <svg

@@ -12,6 +12,11 @@ function AudioProvider({ children }) {
   const [currentTrack, setCurrentTrack] = useState(defaultTrack);
   const [isPlaying, setPlaying] = useState(false);
 
+  function changeStateIsPlaying() {
+    setPlaying(false);
+    audio.removeEventListener('ended', changeStateIsPlaying);
+  }
+
   function handleToggleTrack(dataTrack) {
     if (currentTrack.id !== dataTrack.id) {
       setCurrentTrack(dataTrack);
@@ -20,6 +25,8 @@ function AudioProvider({ children }) {
       audio.src = dataTrack.src;
       audio.currentTime = 0;
       audio.play();
+      audio.removeEventListener('ended', changeStateIsPlaying);
+      audio.addEventListener('ended', changeStateIsPlaying);
 
       return;
     }
@@ -27,9 +34,11 @@ function AudioProvider({ children }) {
     if (isPlaying) {
       audio.pause();
       setPlaying(false);
+      audio.removeEventListener('ended', disableStatusTrack);
     } else {
       audio.play();
       setPlaying(true);
+      audio.addEventListener('ended', disableStatusTrack);
     }
   }
 
