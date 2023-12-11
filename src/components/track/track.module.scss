@@ -1,0 +1,46 @@
+.trackContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.trackBtn {
+  margin-right: 30px;
+}
+
+.trackPreview {
+  width: 100%;
+  max-width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 20px;
+
+  img {
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+}
+
+.trackDesc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .trackTitle {
+    white-space: nowrap;
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .trackArtist {
+    white-space: nowrap;
+    font-size: 16px;
+  }
+
+  .trackTime {
+    font-weight: 500;
+  }
+}
