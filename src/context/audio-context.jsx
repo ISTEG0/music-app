@@ -34,11 +34,11 @@ function AudioProvider({ children }) {
     if (isPlaying) {
       audio.pause();
       setPlaying(false);
-      audio.removeEventListener('ended', disableStatusTrack);
+      audio.removeEventListener('ended', changeStateIsPlaying);
     } else {
       audio.play();
       setPlaying(true);
-      audio.addEventListener('ended', disableStatusTrack);
+      audio.addEventListener('ended', changeStateIsPlaying);
     }
   }
 
